@@ -138,17 +138,6 @@ class Toast extends BaseComponent {
       EventHandler.trigger(this._element, EVENT_HIDDEN)
     }
 
-    this._element.classList.remove(CLASS_NAME_SHOW)
-    if (this._config.animation) {
-      const transitionDuration = getTransitionDurationFromElement(this._element)
-
-      EventHandler.one(this._element, 'transitionend', complete)
-      emulateTransitionEnd(this._element, transitionDuration)
-    } else {
-      complete()
-    }
-  }
-
   dispose() {
     this._clearTimeout()
 
